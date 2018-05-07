@@ -28,9 +28,9 @@ class MovieModelManager(models.Manager):
     def get_queryset(self):
         return MovieModelQuerySet(self.model, using = self._db)
 
-        def all(self, *args, **kwargs):
-            qs = super(MovieModelManager, self).all(*args, **kwargs).active()
-            return qs
+    def all(self, *args, **kwargs):
+        qs = super(MovieModelManager, self).all(*args, **kwargs).active()
+        return qs
 
 class Movie(models.Model):
     name = models.CharField(max_length = 120)
